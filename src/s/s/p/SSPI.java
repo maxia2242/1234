@@ -4,6 +4,8 @@
  */
 package s.s.p;
 
+import java.util.Random;
+
 /**
  *
  * @author maxia2242
@@ -1169,7 +1171,117 @@ public class SSPI extends javax.swing.JFrame {
     }//GEN-LAST:event_J6ActionPerformed
 
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
-    
+    int x = 0;
+        int y =0;
+        int z = 0;
+        int countA = 0;
+        Random rand = new Random();
+        int n = rand.nextInt(9)+1;
+        
+        for (int i = 0; i <= 9; i++) {
+            if ((AGUI[i].getText()).equals("")) {
+                grid[0][i] = 0;
+            } else {
+                grid[0][i] = Integer.parseInt(AGUI[i].getText());
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (BGUI[i].getText().equals("")) {
+                grid[1][i] = 0;
+            } else {
+                grid[1][i] = Integer.parseInt(BGUI[i].getText());
+            }
+
+        }
+        for (int i = 0; i < 9; i++) {
+            if (CGUI[i].getText().equals("")) {
+                grid[2][i] = 0;
+            } else {
+                grid[2][i] = Integer.parseInt(CGUI[i].getText());
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (DGUI[i].getText().equals("")) {
+                grid[3][i] = 0;
+            } else {
+                grid[3][i] = Integer.parseInt(DGUI[i].getText());
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (EGUI[i].getText().equals("")) {
+                grid[4][i] = 0;
+            } else {
+                grid[4][i] = Integer.parseInt(EGUI[i].getText());
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (FGUI[i].getText().equals("")) {
+                grid[5][i] = 0;
+            } else {
+                grid[5][i] = Integer.parseInt(FGUI[i].getText());
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (GGUI[i].getText().equals("")) {
+                grid[6][i] = 0;
+            } else {
+                grid[6][i] = Integer.parseInt(GGUI[i].getText());
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (HGUI[i].getText().equals("")) {
+                grid[7][i] = 0;
+            } else {
+                grid[7][i] = Integer.parseInt(HGUI[i].getText());
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (FGUI[i].getText().equals("")) {
+                grid[8][i] = 0;
+            } else {
+                grid[8][i] = Integer.parseInt(FGUI[i].getText());
+            }
+        }
+        while(z != 10){
+            if((grid[0][y]) == 0 ){
+                grid[0][y] = n; 
+                
+            }else if(grid[0][y] != grid [x][0]){
+                countA++;
+                
+            }else if(grid[0][y] != grid[0][x]){
+                countA++;
+            }
+            x++;
+            if(grid[0][y] != grid[1][y+1]){
+                countA++;
+            }else if(grid[0][y] != grid[2][y+1]){
+                countA++;
+            }else if(grid[0][y] != grid[1][y+2]){
+                countA++;
+            }else if(grid[0][y] != grid[2][y+2]){
+                countA++;
+            }
+            if(countA == 54){
+                z++;
+                y++;
+                countA= 0;
+                x = 0;
+            }else{
+                y = y;
+                x = 0;
+            }
+        }
+        System.out.println(grid[0][0]);
+        System.out.println(grid[0][1]);
+        System.out.println(grid[0][2]);
+        System.out.println(grid[0][3]);
+        System.out.println(grid[0][4]);
+        System.out.println(grid[0][5]);
+        System.out.println(grid[0][6]);
+        System.out.println(grid[0][7]);
+        System.out.println(grid[0][8]);
+        
         
         
         
@@ -1304,4 +1416,13 @@ public class SSPI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField16;
     // End of variables declaration//GEN-END:variables
+private javax.swing.JTextField[] AGUI = {A1, A2, A3, A4, A5, A6, A7, A8, A9};
+    private javax.swing.JTextField[] BGUI = {B1, B2, B3, B4, B5, B6, B7, B8, B9};
+    private javax.swing.JTextField[] CGUI = {C1, C2, C3, C4, C5, C6, C7, C8, C9};
+    private javax.swing.JTextField[] DGUI = {D1, D2, D3, D4, D5, D6, D7, D8, D9};
+    private javax.swing.JTextField[] EGUI = {E1, E2, E3, E4, E5, E6, E7, E8, E9};
+    private javax.swing.JTextField[] FGUI = {F1, F2, F3, F4, F5, F6, F7, F8, F9};
+    private javax.swing.JTextField[] GGUI = {G1, G2, G3, G4, G5, G6, G7, G8, G9};
+    private javax.swing.JTextField[] HGUI = {H1, H2, H3, H4, H5, H6, H7, H8, H9};
+    private int[][] grid = new int[9][9];
 }
